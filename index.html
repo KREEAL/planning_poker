@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Centered Greeting | Simple Button</title>
+    <style>
+        /* Reset & base styling for full-page centering */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Use viewport height for vertical centering */
+            min-height: 100vh;
+            /* Create a flexible container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Soft background for visual comfort (light neutral tone) */
+            background: linear-gradient(145deg, #f5f7fc 0%, #e9eef4 100%);
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 1.5rem;
+        }
+
+        /* Main content card — gentle rounded container for the greeting & button */
+        .greeting-card {
+            text-align: center;
+            max-width: 620px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(2px);
+            border-radius: 3rem;
+            padding: 2.5rem 2rem 3rem 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* Main greeting text: bold, elegant, responsive */
+        .greeting {
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #1a2a3f, #2c3e4e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.05);
+            margin-bottom: 1.8rem;
+            word-break: keep-all;
+        }
+
+        /* optional sub-style for warmth — you can keep it minimal */
+        .greeting::before {
+            content: "✨ ";
+            font-size: 0.9em;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #f59e0b;
+        }
+
+        .greeting::after {
+            content: " ✨";
+            font-size: 0.9em;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #f59e0b;
+        }
+
+        /* Red button: distinctive, rounded, does nothing (no JS action) */
+        .press-btn {
+            display: inline-block;
+            background-color: #e11d1d;
+            border: none;
+            padding: 0.9rem 2.2rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: white;
+            letter-spacing: 0.5px;
+            border-radius: 60px;
+            cursor: pointer;
+            /* subtle transitions for feel (still does nothing interactive except hover) */
+            transition: transform 0.15s ease, background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 18px rgba(225, 29, 29, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hover effects for the red button — visual feedback only, no action */
+        .press-btn:hover {
+            background-color: #bf1717;
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(191, 23, 23, 0.4);
+            cursor: pointer;
+        }
+
+        /* Active/press effect mimics click but no function attached */
+        .press-btn:active {
+            transform: scale(0.97);
+            background-color: #a31212;
+            transition: transform 0.05s;
+        }
+
+        /* For accessibility: focus ring */
+        .press-btn:focus-visible {
+            outline: 3px solid #ffb347;
+            outline-offset: 3px;
+        }
+
+        /* optional small decorative line or footnote? not needed but adds finesse */
+        .info-note {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #5c6f87;
+            opacity: 0.7;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* ensures that on very small devices, padding is comfortable */
+        @media (max-width: 480px) {
+            .greeting-card {
+                padding: 1.8rem 1.2rem 2.2rem 1.2rem;
+                border-radius: 2rem;
+            }
+            .press-btn {
+                padding: 0.7rem 1.6rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting-card">
+        <!-- main greeting text: centered, pleasant -->
+        <div class="greeting">
+            Hello, friend!
+        </div>
+        <!-- Red button with text "press me" - no JavaScript, does absolutely nothing -->
+        <button class="press-btn" type="button">press me</button>
+        <!-- tiny footnote (just for design, optional but harmless) -->
+        <div class="info-note">
+            ✦ a simple, calm moment ✦
+        </div>
+    </div>
+</body>
+</html>
